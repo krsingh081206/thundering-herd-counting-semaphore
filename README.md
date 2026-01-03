@@ -50,7 +50,7 @@ You should see output indicating that multiple processes are attempting to acqui
 *   `init.sql`: Creates the `semaphore_parent` and `semaphore_child` tables. `semaphore_parent` tracks the number of active locks for a given key, and `semaphore_child` stores the individual lock tokens.
 *   `acquire.sql`: Defines the `attempt_to_acquire_semaphore_child` PostgreSQL function. This function atomically checks for expired locks, verifies if the current lock count is below the maximum, and if so, increments the count and issues a new lock token.
 *   `release.sql`: Defines the `release_semaphore_child` PostgreSQL function. This function removes a lock token from the `semaphore_child` table and decrements the lock count in `semaphore_parent`.
-*   `index.js`: The NodeJS script that simulates the thundering herd. It spawns multiple "processes" that all try to acquire a semaphore by calling the `attempt_to_acquire_semaphore_child` function. If a lock is acquired, the process "works" for a short duration and then releases the lock.
+*   `thunderherd.js`: The NodeJS script that simulates the thundering herd. It spawns multiple "processes" that all try to acquire a semaphore by calling the `attempt_to_acquire_semaphore_child` function. If a lock is acquired, the process "works" for a short duration and then releases the lock.
 *   `config.json`: Stores the database connection settings.
 *   `package.json`: Defines the project dependencies.
 *   `.gitignore`: Prevents `node_modules` and `config.json` from being checked into version control.
