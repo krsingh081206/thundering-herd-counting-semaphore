@@ -1,0 +1,9 @@
+{
+  "db": {
+    "user": "root",
+    "host": "localhost",
+    "database": "postgres",
+    "password": "Linux123#$",
+    "port": 5432
+  }
+}
